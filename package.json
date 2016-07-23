@@ -1,10 +1,10 @@
 {
-  "name": "universal-starter",
-  "version": "2.0.0",
-  "description": "Angular 2 Universal starter kit by @AngularClass",
+  "name": "cape-rentals",
+  "version": "0.1.0",
+  "description": "Cape Rentals",
   "repository": {
     "type": "git",
-    "url": "https://github.com/angular/universal-starter.git"
+    "url": "https://github.com/josiah1888/cape-rentals.git"
   },
   "scripts": {
     "postinstall": "typings install",
@@ -18,13 +18,6 @@
     "predebug": "npm run build",
     "debug": "node --debug-brk dist/server/index.js"
   },
-  "license": "MIT",
-  "contributors": [
-    "AngularClass <hello@angularclass.com>",
-    "PatrickJS <patrick@angularclass.com>",
-    "Jeff Whelpley <jeff@gethuman.com>",
-    "Jeff Cross <crossj@google.com>"
-  ],
   "dependencies": {
     "@angular/common": "2.0.0-rc.4",
     "@angular/compiler": "2.0.0-rc.4",

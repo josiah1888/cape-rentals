@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 @Component({
   moduleId: __filename,
   selector: 'home',
@@ -9,4 +8,6 @@ import { Component } from '@angular/core';
   templateUrl: 'home.template.html'
 })
 export class Home {
+  constructor() {
+  }
 }

@@ -1,0 +1,23 @@
+.house {
+    width: 100%;
+    max-width: 980px;
+}
+
+.house__image img {
+    width: 100%;
+}
+
+.details-boxes__key  {
+    display: block;
+    color: grey;
+    text-transform: uppercase;
+}
+
+.detail-boxes__value {
+
+}
+
+.detail-boxes div {
+    padding: 10px 45px;
+    text-align: center;
+}

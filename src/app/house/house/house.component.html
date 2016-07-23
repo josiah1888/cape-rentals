@@ -1,0 +1,97 @@
+<div class="house" [hidden]="isEditing">
+    <div>
+        <div>
+            <div *ngIf="hasAuth$ | async" class="property__actions-container">
+                <i class="fa fa-edit large margin--small" (click)="isEditing = true"></i>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 house__image">
+                <a class="fancybox" rel="431SEllis" [href]="house.imageUrl" title=""><img [src]="house.imageUrl" [alt]="house.address"></a>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="row detail-boxes">
+                    <div class="col-sm-6">
+                        <label for="value" class="details-boxes__key">Key</label>
+                        <span class="detail-boxes__value" name="value">value</span>
+                        <hr />
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="value2" class="details-boxes__key">Key</label>
+                        <span class="detail-boxes__value" name="value2">value</span>
+                        <hr />
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="value3" class="details-boxes__key">Key</label>
+                        <span class="detail-boxes__value" name="value3">value</span>
+                        <hr />
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="value4" class="details-boxes__key">Key</label>
+                        <span class="detail-boxes__value" name="value4">value</span>
+                        <hr />
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="value5" class="details-boxes__key">Key</label>
+                        <span class="detail-boxes__value" name="value5">value</span>
+                        <hr />
+                    </div>
+                    <!--<li><strong class="">Bedrooms</strong> <br> <span>{{house.numBedrooms}}</span></li>
+                    <li><strong class="">Bathrooms</strong> <br> <span>{{house.numBathrooms}}</span></li>
+                    <li><strong class="">Location</strong> <br> <span>{{house.location}}</span></li>
+                    <li class=""><strong class="">School District</strong> <br> <span>{{house.schoolDistrict}}</span></li>
+                    <li class=""><strong class="">Parking</strong> <br> <span>{{house.parking}}</span></li>
+                    <li class=""><strong class="">Laundry</strong> <br> <span>{{house.laundry}}</span></li>
+                    <li class=""><strong class="">Deposit</strong> <br> <span>{{house.deposit | currency:'USD':true:'1.0-0'}}</span></li>
+                    <li class=""><strong class="">Pets</strong> <br> <span>{{house.petsAllowed ? 'Yes' : 'No'}}</span></li>-->
+                    <!--<li class="prop_item"><strong class="prop_title">Utilities:</strong> <span>Water/Sewer/Trash</span></li>
+                            <li class="prop_item"><strong class="prop_title">Amenities:</strong> <span>Cable</span></li>-->
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="clear"></div>
+    <div class="">
+        <div class="" style="">
+            <p>
+                <!--<a class="fancybox" rel="431SEllis" href="../img/gallery/singlefamily/lrg_singlefamily_5.jpg" title=""><img src="../img/gallery/singlefamily/thumb_singlefamily_5.jpg" alt="431 S. Ellis" /></a>
+              <a class="fancybox" rel="431SEllis" href="../img/gallery/singlefamily/lrg_singlefamily_4.jpg" title=""><img src="../img/gallery/singlefamily/thumb_singlefamily_4.jpg" alt="431 S. Ellis" /></a>-->
+            </p>
+        </div>
+        <!--<div class="">
+            <h3 class="">Description</h3>
+            <p>{{house.description}}</p>
+        </div>-->
+        <!--<div class="">
+            <span>{{house.isRented ? 'Rented' : 'Available'}}</span>
+        </div>-->
+        <!--<div class="">
+            <div [id]="house.id" class="fb-share-button" data-layout="button" data-mobile-iframe="true"></div>
+            <span>Monthly Rent:</span> <strong>{{house.rent | currency:'USD':true:'1.0-0'}}</strong>
+        </div>-->
+
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="owner">Owner</label>
+                <span name="owner">JBurchard</span>
+            </div>
+            <div class="col-sm-4">
+                <label for="address">Address</label>
+                <span name="address">30 N Hanover St</span>
+            </div>
+            <div class="col-sm-2">
+                <label for="owner">Rent</label>
+                <span name="owner">$750/month</span>
+            </div>
+            <div class="col-sm-3">
+                <a href="#">Details</a>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<editable-house [house]="editableHouse" *ngIf="isEditing" (save)="save.emit($event); isEditing = false" (cancel)="isEditing = false" 
+(delete)="delete.emit($event)" (changeOrder)="changeOrder($event)"></editable-house>

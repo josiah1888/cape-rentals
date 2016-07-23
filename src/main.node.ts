@@ -17,6 +17,8 @@ import { APP_BASE_HREF } from '@angular/common';
 // Application
 import {App} from './app/app.component';
 import {routes} from './app/app.routes';
+import { HouseService } from './app/house/services/house.service';
+
 
 export function ngApp(req, res) {
   let baseUrl = '/';
@@ -34,7 +36,8 @@ export function ngApp(req, res) {
       {provide: REQUEST_URL, useValue: url},
       NODE_HTTP_PROVIDERS,
       provideRouter(routes),
-      NODE_LOCATION_PROVIDERS
+      NODE_LOCATION_PROVIDERS,
+      HouseService
     ],
     async: true,
     preboot: false // { appRoot: 'app' } // your top level app component selector

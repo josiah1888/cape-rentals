@@ -55,32 +55,44 @@ export class About { }
     pre { font-size:12px; }
   `],
   template: `
-  <h3 id="universal">Angular2 Universal</h3>
-  <nav>
-    <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./home'] ">Home</a>
-    <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./about'] ">About</a>
-  </nav>
-  <div class="hero-universal">
-    <div class="inner-hero">
-      <div>
-        <span x-large>Universal JavaScript {{ title }}!</span>
-      </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <nav>
+      <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./home'] ">Home</a>
+      <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./about'] ">About</a>
+    </nav>
+    <main class="container">
+      <router-outlet></router-outlet>
+    </main>
+  ` 
+  
+  
+  //`
+  // <h3 id="universal">Angular2 Universal</h3>
+  // <nav>
+  //   <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./home'] ">Home</a>
+  //   <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./about'] ">About</a>
+  // </nav>
+  // <div class="hero-universal">
+  //   <div class="inner-hero">
+  //     <div>
+  //       <span x-large>Universal JavaScript {{ title }}!</span>
+  //     </div>
 
-      Two-way binding: <input type="text" [value]="title" (input)="title = $event.target.value" autofocus>
-      <br><br>
+  //     Two-way binding: <input type="text" [value]="title" (input)="title = $event.target.value" autofocus>
+  //     <br><br>
 
-      <strong>Async data call return value:</strong>
-      <pre>{{ data | json }}</pre>
+  //     <strong>Async data call return value:</strong>
+  //     <pre>{{ data | json }}</pre>
 
-      <strong>Router-outlet:</strong>
-      <main>
-        <router-outlet></router-outlet>
-      </main>
+  //     <strong>Router-outlet:</strong>
+  //     <main>
+  //       <router-outlet></router-outlet>
+  //     </main>
 
-      <blockquote>{{ server }}</blockquote>
-    </div>
-  </div>
-  `
+  //     <blockquote>{{ server }}</blockquote>
+  //   </div>
+  // </div>
+  // `
 })
 export class App {
   title: string = 'ftw';

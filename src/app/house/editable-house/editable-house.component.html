@@ -1,0 +1,61 @@
+<div class="property_panel_container">
+    <div class="property_panel">
+        <div class="property__actions-container">
+            <i class="fa fa-chevron-up large margin--small" (click)="changeOrder.emit({house: house, direction: -1})"></i>
+            <i class="fa fa-chevron-down large margin--small" (click)="changeOrder.emit({house: house, direction: 1})"></i>
+            <i class="fa fa-save large margin--small" (click)="save.emit(house)"></i>
+            <i class="fa fa-close large margin--small" (click)="cancel.emit()"></i>
+            <i *ngIf="house.id" class="fa fa-trash large margin--small" (click)="delete.emit(house)"></i> 
+        </div>
+        <div class="property_location">
+            <input [(ngModel)]="house.address" />
+        </div>
+        <div class="property_img">
+            <div style="position: absolute; right: 0; z-index: 5;" class="full-width">
+            <label for="ImageUrl" style="color: #FFF;" >Image Url</label>
+            <input name="ImageUrl" [(ngModel)]="house.imageUrl" class="full-width"/>
+                </div> 
+                <img [src]="house.imageUrl" height="290" [alt]="house.address" style="opacity: .4;" />
+        </div>
+
+        <div class="property_list">
+            <ul>
+                <li class="prop_item"><strong class="prop_title">Bedrooms</strong> <br> <input [(ngModel)]="house.numBedrooms" /></li>
+                <li class="prop_item"><strong class="prop_title">Bathrooms</strong> <br> <input [(ngModel)]="house.numBathrooms" /></li>
+                <li class="prop_item"><strong class="prop_title">Location</strong> <br> <input [(ngModel)]="house.location" /></li>
+                <li class="prop_item"><strong class="prop_title">School District</strong> <br> <input [(ngModel)]="house.schoolDistrict" /></li>
+                <li class="prop_item"><strong class="prop_title">Parking</strong> <br> <input [(ngModel)]="house.parking" /></li>
+                <li class="prop_item"><strong class="prop_title">Laundry</strong> <br> <input [(ngModel)]="house.laundry" /></li>
+                <li class="prop_item"><strong class="prop_title">Deposit</strong> <br> <input type="number" [(ngModel)]="house.deposit" /></li>
+                <li class="prop_item"><strong class="prop_title">Pets</strong> <br> 
+                <input type="radio" name="pets" [checked]="house.petsAllowed" (change)="house.petsAllowed = true"> Pets
+                <input type="radio" name="pets" [checked]="!house.petsAllowed" (change)="house.petsAllowed = false"> No Pets
+                </li>
+                <!--<li class="prop_item"><strong class="prop_title">Utilities:</strong> <span>Water/Sewer/Trash</span></li>
+                        <li class="prop_item"><strong class="prop_title">Amenities:</strong> <span>Cable</span></li>-->
+            </ul>
+        </div>
+
+    </div>
+    <div class="clear"></div>
+    <div class="property_panel">
+        <div class="property_pics" style="padding-top:5px;">
+            <p>
+                <!--<a class="fancybox" rel="431SEllis" href="../img/gallery/singlefamily/lrg_singlefamily_5.jpg" title=""><img src="../img/gallery/singlefamily/thumb_singlefamily_5.jpg" alt="431 S. Ellis" /></a>
+              <a class="fancybox" rel="431SEllis" href="../img/gallery/singlefamily/lrg_singlefamily_4.jpg" title=""><img src="../img/gallery/singlefamily/thumb_singlefamily_4.jpg" alt="431 S. Ellis" /></a>-->
+            </p>
+        </div>
+        <div class="property_description">
+            <h3 class="prop_title">Description</h3>
+            <textarea [(ngModel)]="house.description" ></textarea>
+        </div>
+        <div class="property_rented">
+            <input type="radio" name="isRented" [checked]="house.isRented" (change)="house.isRented = true"> Rented
+            <input type="radio" name="isRented" [checked]="!house.isRented" (change)="house.isRented = false"> Available
+        </div>
+        <div class="property_rent" style="">
+            <span>Monthly Rent:</span> <input type="number" [(ngModel)]="house.rent" />
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>

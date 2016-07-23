@@ -2,6 +2,7 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { provideRouter } from '@angular/router';
 import { HTTP_PROVIDERS } from '@angular/http';
+import { disableDeprecatedForms, provideForms } from '@angular/forms';
 
 // Application
 import {App} from './app/app.component';
@@ -15,6 +16,9 @@ export function ngApp() {
     ...HTTP_PROVIDERS,
     provideRouter(routes),
     FirebaseService,
-    HouseService
+    HouseService, // Try without these  
+    disableDeprecatedForms(),
+    provideForms()
+    
   ]);
 }

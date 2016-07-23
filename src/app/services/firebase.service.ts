@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
+declare let Firebase: any;
 
 export const BASE_URL: string = 'https://glaring-torch-2375.firebaseio.com/'
 
@@ -13,29 +14,31 @@ export class FirebaseService<T extends CollectionItem> {
   protected firebase: any;
   
   constructor(private baseUrl: string = BASE_URL) {
-    // this.firebase = new Firebase(this.baseUrl);
+    this.firebase = new Firebase(this.baseUrl);
     this.collection$ = new BehaviorSubject(this._collection);
     this.collection$.subscribe();
     
-    // this.firebaseInit();
+    this.firebaseInit();
   }
   
   private firebaseInit() {
-    // this.firebase.on('child_added', snapshot => {
-    //   let item = Object.assign(snapshot.val(), {id: snapshot.key()});
-    //     this._collection.push(item)
-    //     this.collection$.next(this._collection);
-    // });
+    this.firebase.on('child_added', snapshot => {
+      let item = Object.assign(snapshot.val(), {id: snapshot.key()});
+        if (this._collection.map(i => i.id).indexOf(item.id) === -1) {
+          this._collection.push(item)
+          this.collection$.next(this._collection);
+        }
+    });
     
-    // this.firebase.on('child_removed', snapshot => {
-    //   this._collection.splice(this._collection.map(i => i.id).indexOf(snapshot.key()), 1);
-    //   this.collection$.next(this._collection);      
-    // }); 
+    this.firebase.on('child_removed', snapshot => {
+      this._collection.splice(this._collection.map(i => i.id).indexOf(snapshot.key()), 1);
+      this.collection$.next(this._collection);      
+    }); 
     
-    // this.firebase.on('child_changed', snapshot => {
-    //   this._collection[(this._collection.map(i => i.id).indexOf(snapshot.key()))] = snapshot.val();
-    //   this.collection$.next(this._collection);      
-    // });
+    this.firebase.on('child_changed', snapshot => {
+      this._collection[(this._collection.map(i => i.id).indexOf(snapshot.key()))] = snapshot.val();
+      this.collection$.next(this._collection);      
+    });
   }
 
   create(item: T) {
@@ -47,13 +50,13 @@ export class FirebaseService<T extends CollectionItem> {
   }
   
   update(item: T) {
-    // let ref = new Firebase(`${this.baseUrl}/${item.id}`);
-    // ref.set(item);
+    let ref = new Firebase(`${this.baseUrl}/${item.id}`);
+    ref.set(item);
   }
   
   delete(item: T) {
-    // let ref = new Firebase(`${this.baseUrl}/${item.id}`);
-    // ref.set(null);
+    let ref = new Firebase(`${this.baseUrl}/${item.id}`);
+    ref.set(null);
   }
   
   get collection(): T[] {

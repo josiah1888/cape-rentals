@@ -17,7 +17,6 @@ import { APP_BASE_HREF } from '@angular/common';
 // Application
 import {App} from './app/app.component';
 import {routes} from './app/app.routes';
-import { HouseService } from './app/house/services/house.service';
 
 
 export function ngApp(req, res) {

@@ -15,8 +15,8 @@ import {LoginService} from '../../login/login.service';
 })
 export class HouseComponent {
   @Input() house: House;
-  // @Output() save: EventEmitter<House> = new EventEmitter();
-  // @Output() delete: EventEmitter<House> = new EventEmitter();
+  @Output() save: EventEmitter<any> = new EventEmitter(); // Type house please?
+  @Output() delete: EventEmitter<any> = new EventEmitter();
   hasAuth$: Observable<boolean>;
   pipe: HouseAddressUrlPipe = new HouseAddressUrlPipe();
   editableHouse: House;

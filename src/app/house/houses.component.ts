@@ -15,41 +15,40 @@ import {LoginService} from '../login/login.service';
   styleUrls: ['./houses.component.css'],
   template: `
     <div *ngFor="let house of houses$ | async">
-        <house [house]="house"></house>
+        <house [house]="house" (save)="saveHouse($event)" (delete)="deleteHouse($event)"></house>
     </div>
     `
-    // (save)="saveHouse($event)" (delete)="deleteHouse($event)"
-//     <editable-house [house]="newHouse" *ngIf="newHouse" [hidden]="!newHouse" (save)="saveHouse($event)" (cancel)="cancel()"></editable-house>
-//     <div class="text-center" *ngIf="hasAuth$ | async">
-//         <button (click)="createNewHouse()" class="btn">Create New House</button>
-//     </div>
+    
+    // <editable-house [house]="newHouse" *ngIf="newHouse" [hidden]="!newHouse" (save)="saveHouse($event)" (cancel)="cancel()"></editable-house>
+    // <div class="text-center" *ngIf="hasAuth$ | async">
+    //     <button (click)="createNewHouse()" class="btn">Create New House</button>
+    // </div>
 })
 export class HousesComponent {
-//   hasAuth$: Observable<boolean>;
+  hasAuth$: Observable<boolean>;
   houses$: Observable<House[]>;
-//   newHouse: House = null;
-  constructor(private houseService: HouseService) { //, private loginService: LoginService, private facebookService: FacebookService) {
+  newHouse: House = null;
+  constructor(private houseService: HouseService, private loginService: LoginService) { //, private facebookService: FacebookService) {
       this.houses$ = houseService.collection$.map(i => i.sort(this.sortHouses));
-    //   this.hasAuth$ = loginService.hasAuth$;
-    // this.houses$ = Observable.of([new House(), new House(), new House()]);
+      this.hasAuth$ = loginService.hasAuth$;
   }
   
-//   createNewHouse() {
-//       this.newHouse = new House();
-//   }
+  createNewHouse() {
+      this.newHouse = new House();
+  }
   
-//   saveHouse(house: House) {
-//       this.houseService.create(house);
-//       this.newHouse = null;
-//   }
+  saveHouse(house: House) {
+      this.houseService.create(house);
+      this.newHouse = null;
+  }
   
-//   deleteHouse(house: House) {
-//       this.houseService.delete(house);
-//   }
+  deleteHouse(house: House) {
+      this.houseService.delete(house);
+  }
   
-//   cancel() {
-//       this.newHouse = null;
-//   }
+  cancel() {
+      this.newHouse = null;
+  }
   
   sortHouses(a: House, b: House): number {
     if (a.order < b.order) {

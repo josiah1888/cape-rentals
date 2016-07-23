@@ -14,40 +14,40 @@
             <div class="col-sm-6">
                 <div class="row detail-boxes">
                     <div class="col-sm-6">
-                        <label for="value" class="details-boxes__key">Key</label>
-                        <span class="detail-boxes__value" name="value">value</span>
+                        <label for="value" class="details-boxes__key">Bedrooms</label>
+                        <span class="detail-boxes__value" name="value">{{house.numBedrooms}}</span>
                         <hr />
                     </div>
                     <div class="col-sm-6">
-                        <label for="value2" class="details-boxes__key">Key</label>
-                        <span class="detail-boxes__value" name="value2">value</span>
+                        <label for="value2" class="details-boxes__key">Bathrooms</label>
+                        <span class="detail-boxes__value" name="value2">{{house.numBathrooms}}</span>
                         <hr />
                     </div>
                     <div class="col-sm-6">
-                        <label for="value3" class="details-boxes__key">Key</label>
-                        <span class="detail-boxes__value" name="value3">value</span>
+                        <label for="value3" class="details-boxes__key">School</label>
+                        <span class="detail-boxes__value" name="value3">{{house.schoolDistrict}}</span>
                         <hr />
                     </div>
                     <div class="col-sm-6">
-                        <label for="value4" class="details-boxes__key">Key</label>
-                        <span class="detail-boxes__value" name="value4">value</span>
+                        <label for="value4" class="details-boxes__key">Parking</label>
+                        <span class="detail-boxes__value" name="value4">{{house.parking}}</span>
                         <hr />
                     </div>
                     <div class="col-sm-6">
-                        <label for="value5" class="details-boxes__key">Key</label>
-                        <span class="detail-boxes__value" name="value5">value</span>
+                        <label for="value5" class="details-boxes__key">Laundry</label>
+                        <span class="detail-boxes__value" name="value5">{{house.laundry}}</span>
                         <hr />
                     </div>
-                    <!--<li><strong class="">Bedrooms</strong> <br> <span>{{house.numBedrooms}}</span></li>
-                    <li><strong class="">Bathrooms</strong> <br> <span>{{house.numBathrooms}}</span></li>
-                    <li><strong class="">Location</strong> <br> <span>{{house.location}}</span></li>
-                    <li class=""><strong class="">School District</strong> <br> <span>{{house.schoolDistrict}}</span></li>
-                    <li class=""><strong class="">Parking</strong> <br> <span>{{house.parking}}</span></li>
-                    <li class=""><strong class="">Laundry</strong> <br> <span>{{house.laundry}}</span></li>
-                    <li class=""><strong class="">Deposit</strong> <br> <span>{{house.deposit | currency:'USD':true:'1.0-0'}}</span></li>
-                    <li class=""><strong class="">Pets</strong> <br> <span>{{house.petsAllowed ? 'Yes' : 'No'}}</span></li>-->
-                    <!--<li class="prop_item"><strong class="prop_title">Utilities:</strong> <span>Water/Sewer/Trash</span></li>
-                            <li class="prop_item"><strong class="prop_title">Amenities:</strong> <span>Cable</span></li>-->
+                    <!--<div class="col-sm-6">
+                        <label for="value6" class="details-boxes__key">Pets</label>
+                        <span class="detail-boxes__value" name="value6">{{house.petsAllowed ? 'Yes' : 'No'}}</span>
+                        <hr />
+                    </div>-->
+                    <div class="col-sm-6">
+                        <label for="value7" class="details-boxes__key">Deposit</label>
+                        <span class="detail-boxes__value" name="value7">{{house.deposit | currency:'USD':true:'1.0-0'}}</span>
+                        <hr />
+                    </div>
                 </div>
             </div>
         </div>
@@ -76,18 +76,18 @@
         <div class="row">
             <div class="col-sm-3">
                 <label for="owner">Owner</label>
-                <span name="owner">JBurchard</span>
+                <span name="owner">JBurchard Rentals</span>
             </div>
             <div class="col-sm-4">
                 <label for="address">Address</label>
-                <span name="address">30 N Hanover St</span>
+                <span name="address">{{house.location}}</span>
             </div>
             <div class="col-sm-2">
                 <label for="owner">Rent</label>
-                <span name="owner">$750/month</span>
+                <span name="owner">{{house.rent | currency:'USD':true:'1.0-0'}}/month</span>
             </div>
             <div class="col-sm-3">
-                <a href="#">Details</a>
+                <a href="/home#">Details</a>
             </div>
         </div>
     </div>

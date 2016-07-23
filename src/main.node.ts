@@ -36,8 +36,7 @@ export function ngApp(req, res) {
       {provide: REQUEST_URL, useValue: url},
       NODE_HTTP_PROVIDERS,
       provideRouter(routes),
-      NODE_LOCATION_PROVIDERS,
-      HouseService
+      NODE_LOCATION_PROVIDERS
     ],
     async: true,
     preboot: false // { appRoot: 'app' } // your top level app component selector

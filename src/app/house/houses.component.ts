@@ -31,10 +31,10 @@ export class HousesComponent {
 //   hasAuth$: Observable<boolean>;
   houses$: Observable<House[]>;
 //   newHouse: House = null;
-  constructor() { //(private houseService: HouseService, private loginService: LoginService, private facebookService: FacebookService) {
-    //   this.houses$ = houseService.collection$.map(i => i.sort(this.sortHouses));
+  constructor(private houseService: HouseService) { //, private loginService: LoginService, private facebookService: FacebookService) {
+      this.houses$ = houseService.collection$.map(i => i.sort(this.sortHouses));
     //   this.hasAuth$ = loginService.hasAuth$;
-    this.houses$ = Observable.of([new House(), new House(), new House()]);
+    // this.houses$ = Observable.of([new House(), new House(), new House()]);
   }
   
 //   createNewHouse() {
@@ -54,15 +54,15 @@ export class HousesComponent {
 //       this.newHouse = null;
 //   }
   
-//   sortHouses(a: House, b: House): number {
-//     if (a.order < b.order) {
-//         return -1;
-//     } else if (a.order > b.order) {
-//         return 1;
-//     } else {
-//         return 0;
-//     }
-//   }
+  sortHouses(a: House, b: House): number {
+    if (a.order < b.order) {
+        return -1;
+    } else if (a.order > b.order) {
+        return 1;
+    } else {
+        return 0;
+    }
+  }
   
 //   ngAfterViewInit() {
 //       setTimeout(() => this.facebookService.initShareButtons(), 1000);

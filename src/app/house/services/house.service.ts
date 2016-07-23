@@ -12,7 +12,6 @@ export class HouseService extends FirebaseService<House> {
         super(BASE_URL + 'houses/');
         this.http.get(`${BASE_URL}/houses.json`)
             .subscribe(res => {
-                console.log('hey');
                 this._collection = this._collection || [];
                 let json = res.json();
                 for (let house in json) {

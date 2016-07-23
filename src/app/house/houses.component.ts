@@ -5,19 +5,16 @@ import 'rxjs/add/observable/of';
 import {House, HouseService} from './services/house.service';
 import {HouseComponent} from './house/house.component';
 // import {EditableHouseComponent} from './editable-house/editable-house.component';
-// import {LoginService} from '../login/login.service';
+import {LoginService} from '../login/login.service';
 // import {FacebookService} from '../services/facebook.service'
 ;
 @Component({
   selector: 'houses',
   directives: [HouseComponent],//, EditableHouseComponent],
-  providers: [HouseService],
+  providers: [HouseService, LoginService],
   styleUrls: ['./houses.component.css'],
   template: `
-  Houses service right here!
-    
-
-  <div *ngFor="let house of houses$ | async">
+    <div *ngFor="let house of houses$ | async">
         <house [house]="house"></house>
     </div>
     `

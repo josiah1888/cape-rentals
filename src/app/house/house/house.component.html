@@ -13,27 +13,27 @@
 
             <div class="col-sm-6">
                 <div class="row detail-boxes">
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" *ngIf="house.numBedrooms">
                         <label for="value" class="details-boxes__key">Bedrooms</label>
                         <span class="detail-boxes__value" name="value">{{house.numBedrooms}}</span>
                         <hr />
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" *ngIf="house.Bathrooms">
                         <label for="value2" class="details-boxes__key">Bathrooms</label>
                         <span class="detail-boxes__value" name="value2">{{house.numBathrooms}}</span>
                         <hr />
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" *ngIf="house.schoolDistrict">
                         <label for="value3" class="details-boxes__key">School</label>
                         <span class="detail-boxes__value" name="value3">{{house.schoolDistrict}}</span>
                         <hr />
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" *ngIf="house.parking">
                         <label for="value4" class="details-boxes__key">Parking</label>
                         <span class="detail-boxes__value" name="value4">{{house.parking}}</span>
                         <hr />
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" *ngIf="house.laundary">
                         <label for="value5" class="details-boxes__key">Laundry</label>
                         <span class="detail-boxes__value" name="value5">{{house.laundry}}</span>
                         <hr />
@@ -43,7 +43,7 @@
                         <span class="detail-boxes__value" name="value6">{{house.petsAllowed ? 'Yes' : 'No'}}</span>
                         <hr />
                     </div>-->
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" *ngIf="house.deposit">
                         <label for="value7" class="details-boxes__key">Deposit</label>
                         <span class="detail-boxes__value" name="value7">{{house.deposit | currency:'USD':true:'1.0-0'}}</span>
                         <hr />
@@ -55,34 +55,16 @@
     </div>
     <div class="clear"></div>
     <div class="">
-        <div class="" style="">
-            <p>
-                <!--<a class="fancybox" rel="431SEllis" href="../img/gallery/singlefamily/lrg_singlefamily_5.jpg" title=""><img src="../img/gallery/singlefamily/thumb_singlefamily_5.jpg" alt="431 S. Ellis" /></a>
-              <a class="fancybox" rel="431SEllis" href="../img/gallery/singlefamily/lrg_singlefamily_4.jpg" title=""><img src="../img/gallery/singlefamily/thumb_singlefamily_4.jpg" alt="431 S. Ellis" /></a>-->
-            </p>
-        </div>
-        <!--<div class="">
-            <h3 class="">Description</h3>
-            <p>{{house.description}}</p>
-        </div>-->
-        <!--<div class="">
-            <span>{{house.isRented ? 'Rented' : 'Available'}}</span>
-        </div>-->
-        <!--<div class="">
-            <div [id]="house.id" class="fb-share-button" data-layout="button" data-mobile-iframe="true"></div>
-            <span>Monthly Rent:</span> <strong>{{house.rent | currency:'USD':true:'1.0-0'}}</strong>
-        </div>-->
-
         <div class="row">
-            <div class="col-sm-3">
-                <label for="owner">Owner</label>
-                <span name="owner">JBurchard Rentals</span>
+            <div class="col-sm-3" *ngIf="house.owner || house.landlord">
+                <label for="owner">{{house.landlord ? 'Landlord' : 'Owner'}}</label>
+                <span name="owner">{{house.landlord || house.owner}}</span>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4" *ngIf="house.address">
                 <label for="address">Address</label>
-                <span name="address">{{house.location}}</span>
+                <span name="address">{{house.address}}</span>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-2" *ngIf="house.rent">
                 <label for="owner">Rent</label>
                 <span name="owner">{{house.rent | currency:'USD':true:'1.0-0'}}/month</span>
             </div>

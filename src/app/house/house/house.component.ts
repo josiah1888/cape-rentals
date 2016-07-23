@@ -7,6 +7,8 @@ import {HouseAddressUrlPipe} from '../pipes/house-address-url.pipe';
 import {LoginService} from '../../login/login.service';
 // import {FacebookService} from '../../services/facebook.service';
 
+const STOCK_IMAGE_URL: string = 'https://openclipart.org/image/2400px/svg_to_png/217511/1429747035.png';
+
 @Component({
   selector: 'house',
   templateUrl: './house.component.html',
@@ -26,6 +28,7 @@ export class HouseComponent {
   }
   
   ngOnInit() {
+    this.house.imageUrl = this.house.imageUrl || STOCK_IMAGE_URL;
     this.editableHouse = Object.assign({}, this.house);
   }
   

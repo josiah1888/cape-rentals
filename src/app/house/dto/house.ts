@@ -14,6 +14,8 @@ export class House {
     public description: string = 'This is a really great find!';
     public address: string = '123 Main St.';
     public imageUrl: string = 'https://static.pexels.com/photos/106399/pexels-photo-106399.jpeg';
+    public owner: string = 'JBurchard';
+    public landlord: string = 'JBurchard Rentals';
     constructor(house: {
         id?: string,
         rent?: number,
@@ -28,7 +30,9 @@ export class House {
         petsAllowed?: boolean,
         description?: string,
         address?: string,
-        imageUrl?: string
+        imageUrl?: string,
+        owner?: string,
+        landlord?: string
     } = {}) {
         for (let key of Object.keys(house)) {
             this[key] = house[key];

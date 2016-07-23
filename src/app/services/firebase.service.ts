@@ -22,13 +22,13 @@ export class FirebaseService<T extends CollectionItem> {
   }
   
   private firebaseInit() {
-    this.firebase.on('child_added', snapshot => {
-      let item = Object.assign(snapshot.val(), {id: snapshot.key()});
-        if (this._collection.map(i => i.id).indexOf(item.id) === -1) {
-          this._collection.push(item)
-          this.collection$.next(this._collection);
-        }
-    });
+    // this.firebase.on('child_added', snapshot => {
+    //   let item = Object.assign(snapshot.val(), {id: snapshot.key()});
+    //     if (this._collection.map(i => i.id).indexOf(item.id) === -1) {
+    //       this._collection.push(item);
+    //       this.collection$.next(this._collection);
+    //     }
+    // });
     
     this.firebase.on('child_removed', snapshot => {
       this._collection.splice(this._collection.map(i => i.id).indexOf(snapshot.key()), 1);

@@ -11,10 +11,8 @@ export class LoginService extends FirebaseService<any> {
     }
     
    login(email: string, password: string) {
-       console.log('starting login');
         this.firebase.authWithPassword({email: email, password: password}, (error, authData) => {
             this.hasAuth$.next(Boolean(!error));
-            console.log('logged in: ', Boolean(!error));
         });
    }
    

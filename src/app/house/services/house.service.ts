@@ -10,6 +10,7 @@ export {House} from '../dto/house';
 export class HouseService extends FirebaseService<House> {
     constructor(private http: Http) {
         super(BASE_URL + 'houses/');
+
         this.http.get(`${BASE_URL}/houses.json`)
             .subscribe(res => {
                 this._collection = this._collection || [];

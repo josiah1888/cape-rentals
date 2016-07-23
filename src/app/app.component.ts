@@ -63,40 +63,12 @@ export class About { }
       <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./home'] ">Home</a>
       <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./about'] ">About</a>
       <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./login'] ">Login</a>
+      <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./signup'] ">Sign Up</a>
     </nav>
     <main class="container">
       <router-outlet></router-outlet>
     </main>
-  ` 
-  
-  
-  //`
-  // <h3 id="universal">Angular2 Universal</h3>
-  // <nav>
-  //   <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./home'] ">Home</a>
-  //   <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./about'] ">About</a>
-  // </nav>
-  // <div class="hero-universal">
-  //   <div class="inner-hero">
-  //     <div>
-  //       <span x-large>Universal JavaScript {{ title }}!</span>
-  //     </div>
-
-  //     Two-way binding: <input type="text" [value]="title" (input)="title = $event.target.value" autofocus>
-  //     <br><br>
-
-  //     <strong>Async data call return value:</strong>
-  //     <pre>{{ data | json }}</pre>
-
-  //     <strong>Router-outlet:</strong>
-  //     <main>
-  //       <router-outlet></router-outlet>
-  //     </main>
-
-  //     <blockquote>{{ server }}</blockquote>
-  //   </div>
-  // </div>
-  // `
+    `
 })
 export class App {
   title: string = 'ftw';

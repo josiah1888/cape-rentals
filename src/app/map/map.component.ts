@@ -14,20 +14,28 @@ declare let google: any;
   directives: [HouseComponent],
   styles: [`
     .map {
-      margin: 10px 50px;
     }
   `],
   template: `
     <div class="margin--small">
-    <house *ngIf="house" [house]="house" (save)="save($event)" (delete)="delete($event)"></house>
-      <div class="map" id="map" [style.height]="height"></div>
-      
-      <button id="mapbtn" type="button" (click)="showHouse()" style="display: none;" ></button>
+    <div class="row">
+      <div class="col-sm-6">
+        <house *ngIf="house" [house]="house" [isSmallView]="true" (save)="save($event)" (delete)="delete($event)"></house>
+        <div *ngIf="!house">
+          <h1>Click on the map to view rental properties</h1>
+        </div>  
+      </div>
+      <div class="col-sm-6">
+        <div class="map" id="map" [style.height]="height"></div>
+        <button id="mapbtn" type="button" (click)="showHouse()" style="display: none;" ></button>
+      </div>
+    </div>
+    
     </div> 
   `
 })
 export class MapComponent {
-    height = '600px';
+    height = '300px';
     myLatLng = {lat: 37.2993594, lng: -89.5633772};
     // min: 37.2993594,-89.5633772
     // max: 37.3233942,-89.514869

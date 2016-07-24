@@ -22,6 +22,7 @@ const STOCK_IMAGE_URL: string = 'https://openclipart.org/image/2400px/svg_to_png
 export class HouseComponent {
   @Input() house: House;
   @Input() isOwnerView: boolean;
+  @Input() isSmallView: boolean;
   @Output() save: EventEmitter<any> = new EventEmitter();
   @Output() delete: EventEmitter<any> = new EventEmitter();
   hasAuth$: Observable<boolean>;

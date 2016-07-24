@@ -8,14 +8,28 @@ import {SignupService} from './signup.service';
   selector: 'signup',
   providers: [SignupService],
   template: `
-    <div class="margin--small">
-      <form [hidden]="hasAuth$ | async" (ngSubmit)="signup()" class="margin--small text-center" #signupForm="ngForm">
-          <div>Sign up to list your Cape Girardeau rental properties here</div>
-          <div>Email: <input type="email" [(ngModel)]="model.email" name="email" required/></div>
-          <div>Password: <input type="password" [(ngModel)]="model.password" name="password" required/></div>
-          <div>Name: <input type="text" [(ngModel)]="model.name" name="name" required/></div>
-          <div>License ID: <input type="text" [(ngModel)]="model.licenserId" name="licenserId" required/></div>
-          <div><button class="btn" type="submit" [disabled]="!signupForm.form.valid">Sign Up!</button></div>
+    <div class="row">
+      <form [hidden]="hasAuth$ | async" (ngSubmit)="signup()" class="col-md-4 col-md-offset-4" #signupForm="ngForm">
+          <h3>Cape Landlord Sign Up</h3>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control" type="email" [(ngModel)]="model.email" name="email" placeholder="joe@shmoe.com" required/>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input class="form-control" type="password" [(ngModel)]="model.password" name="password" placeholder="SecretPassword#!" required/>
+          </div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" type="text" [(ngModel)]="model.name" name="name" required placeholder="Joe Shmoe"/>
+          </div>
+          <div class="form-group">
+            <label for="licenserid">Licenser ID</label>
+            <input class="form-control" type="text" [(ngModel)]="model.licenserId" name="licenserid" required placeholder="1460"/>
+          </div>
+
+          <button class="btn btn-default" type="submit" [disabled]="!signupForm.form.valid">Sign Up!</button>
       </form>
     </div> 
   `

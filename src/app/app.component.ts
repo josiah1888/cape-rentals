@@ -53,6 +53,11 @@ export class About { }
     blockquote::before { left: 1em; }
     main { padding:20px 0; }
     pre { font-size:12px; }
+    .main-title {
+      color: #FFF;
+      float: right;
+      padding: 10px 20px;
+    }
   `],
   template: `
     <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
@@ -63,6 +68,7 @@ export class About { }
       <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./'] ">Home</a>
       <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./houses'] ">All Rentals</a>
       <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./signup'] ">Sign Up</a>
+      <h1 class="main-title">Cape Rentals</h1>
     </nav>
     <main class="container">
       <router-outlet></router-outlet>
@@ -70,23 +76,5 @@ export class About { }
     `
 })
 export class App {
-  title: string = 'ftw';
-  data = {};
-  server: string;
-
   constructor(public http: Http) { }
-
-  ngOnInit() {
-    // limit the use of setTimeouts
-    setTimeout(() => {
-      this.server = 'This was rendered from the server!';
-    }, 10);
-
-    // use services for http calls
-    this.http.get('/data.json')
-      .subscribe(res => {
-        this.data = res.json();
-      });
-  }
-
 }

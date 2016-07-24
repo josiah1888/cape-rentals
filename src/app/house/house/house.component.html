@@ -7,43 +7,38 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 house__image">
+            <div class="{{isSmallView ? 'col-sm-12' : 'col-sm-6'}} house__image">
                 <a class="fancybox" rel="431SEllis" [href]="house.imageUrl" title=""><img [src]="house.imageUrl" [alt]="house.address"></a>
             </div>
 
-            <div class="col-sm-6">
+            <div class="{{isSmallView ? 'col-sm-12' : 'col-sm-6'}}">
                 <div class="row detail-boxes">
-                    <div class="col-sm-6" *ngIf="house.numBedrooms">
+                    <div class="col-xs-6" *ngIf="house.numBedrooms">
                         <label for="value" class="details-boxes__key">Bedrooms</label>
                         <span class="detail-boxes__value" name="value">{{house.numBedrooms}}</span>
                         <hr />
                     </div>
-                    <div class="col-sm-6" *ngIf="house.numBathrooms">
+                    <div class="col-xs-6" *ngIf="house.numBathrooms">
                         <label for="value2" class="details-boxes__key">Bathrooms</label>
                         <span class="detail-boxes__value" name="value2">{{house.numBathrooms}}</span>
                         <hr />
                     </div>
-                    <div class="col-sm-6" *ngIf="house.schoolDistrict">
+                    <div class="col-xs-6" *ngIf="house.schoolDistrict">
                         <label for="value3" class="details-boxes__key">School</label>
                         <span class="detail-boxes__value" name="value3">{{house.schoolDistrict}}</span>
                         <hr />
                     </div>
-                    <div class="col-sm-6" *ngIf="house.parking">
+                    <div class="col-xs-6" *ngIf="house.parking">
                         <label for="value4" class="details-boxes__key">Parking</label>
                         <span class="detail-boxes__value" name="value4">{{house.parking}}</span>
                         <hr />
                     </div>
-                    <div class="col-sm-6" *ngIf="house.laundary">
+                    <div class="col-xs-6" *ngIf="house.laundary">
                         <label for="value5" class="details-boxes__key">Laundry</label>
                         <span class="detail-boxes__value" name="value5">{{house.laundry}}</span>
                         <hr />
                     </div>
-                    <!--<div class="col-sm-6">
-                        <label for="value6" class="details-boxes__key">Pets</label>
-                        <span class="detail-boxes__value" name="value6">{{house.petsAllowed ? 'Yes' : 'No'}}</span>
-                        <hr />
-                    </div>-->
-                    <div class="col-sm-6" *ngIf="house.deposit">
+                    <div class="col-xs-6" *ngIf="house.deposit">
                         <label for="value7" class="details-boxes__key">Deposit</label>
                         <span class="detail-boxes__value" name="value7">{{house.deposit | currency:'USD':true:'1.0-0'}}</span>
                         <hr />
@@ -67,12 +62,9 @@
                 <label for="address">Address</label>
                 <span name="address">{{house.address}}</span>
             </div>
-            <div class="col-sm-2" *ngIf="house.rent">
+            <div class="col-sm-3" *ngIf="house.rent">
                 <label for="owner">Rent</label>
                 <span name="owner">{{house.rent | currency:'USD':true:'1.0-0'}}/month</span>
-            </div>
-            <div class="col-sm-3">
-                <a href="/home#">Details</a>
             </div>
         </div>
     </div>

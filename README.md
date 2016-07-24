@@ -8,7 +8,7 @@ Cape Rentals is a rental property application to connect current and future Cape
 
 ## As a Citizen
 
-Citizens can view properties by their location on a map. They can view ammeneties, images and landlord information.
+Citizens can view properties by their location on a map. They can view ameneties, images and landlord information.
 ![Map View](http://i.imgur.com/ZYZN4db.png)
 
 ## As a Landlord
@@ -26,3 +26,11 @@ View other properties registered to you
 
 Add and edit information to attract clients
 ![Editable House](http://i.imgur.com/jQfoqr7.png)
+
+## Features for Funding
+
+With proper funding, here's the direction I would take this app:
+- Filters
+-  The map should allow searching/filtering for keywords and ameneties such as "outdoor pool" and "2+ bedrooms"
+- Design
+-  Building beautful websites is my specialty. Designing beautiful websites is not. I would hire a contract designer to increase the appeal of the site

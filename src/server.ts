@@ -57,6 +57,6 @@ app.get('*', function(req, res) {
 });
 
 // Server
-app.listen(8080, () => {
-  console.log('Listening on: http://localhost:3000');
+app.listen(process.env.PORT || 3000, () => {
+  console.log('Listening (maybe) on: http://localhost:3000');
 });

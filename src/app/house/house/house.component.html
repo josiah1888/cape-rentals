@@ -62,9 +62,13 @@
                 <label for="address">Address</label>
                 <span name="address">{{house.address}}</span>
             </div>
-            <div class="col-sm-3" *ngIf="house.rent">
+            <div class="col-sm-2" *ngIf="house.rent">
                 <label for="owner">Rent</label>
                 <span name="owner">{{house.rent | currency:'USD':true:'1.0-0'}}/month</span>
+            </div>
+            <div class="col-sm-3">
+                <label for="owner">Contact</label>
+                <a href="tel:5731112222" name="owner">573-111-2222</a>
             </div>
         </div>
     </div>

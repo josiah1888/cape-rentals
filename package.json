@@ -34,9 +34,7 @@
     "methods": "~1.1.2",
     "parse5": "^1.5.0",
     "preboot": "^2.1.2",
-    "rxjs": "5.0.0-beta.6"
-  },
-  "devDependencies": {
+    "rxjs": "5.0.0-beta.6",
     "angular2-template-loader": "^0.4.0",
     "cookie-parser": "^1.4.3",
     "nodemon": "^1.9.2",
@@ -49,5 +47,7 @@
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.0",
     "webpack-merge": "^0.13.0"
+  },
+  "devDependencies": {
   }
 }

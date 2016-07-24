@@ -10,7 +10,7 @@ declare let google: any;
 
 @Component({
   selector: 'map',
-  providers: [GoogleApiService],
+  providers: [GoogleApiService, HouseService],
   directives: [HouseComponent],
   styles: [`
     .map {
@@ -21,17 +21,16 @@ declare let google: any;
     <div class="margin--small">
     <house *ngIf="house" [house]="house" (save)="save($event)" (delete)="delete($event)"></house>
       <div class="map" id="map" [style.height]="height"></div>
-
-
-  
-      <button id="mapbtn1" type="button" (click)="showHouse('-KNOYsPtzrgTJBFfrL4p')" style="display: none;" ></button>
-      <button id="mapbtn2" type="button" (click)="showHouse('-KNOccOVEazMBm5fUUIP')" style="display: none;" ></button>
+      
+      <button id="mapbtn" type="button" (click)="showHouse()" style="display: none;" ></button>
     </div> 
   `
 })
 export class MapComponent {
     height = '600px';
-    myLatLng = {lat: 37.3069353, lng: -89.5214493};
+    myLatLng = {lat: 37.2993594, lng: -89.5633772};
+    // min: 37.2993594,-89.5633772
+    // max: 37.3233942,-89.514869
     map:any;
     house: House;
 
@@ -43,35 +42,42 @@ export class MapComponent {
       let latlng = new google.maps.LatLng(this.myLatLng.lat, this.myLatLng.lng);
 
       this.map = new google.maps.Map(document.getElementById('map'), {
-        center: latlng,
+        center: new google.maps.LatLng(37.3067429,-89.5286194),
         zoom: 13
       });
 
-      let marker1 = new google.maps.Marker({
-        position: latlng,
+      let markers = this.houseService.collection.map(i => new google.maps.Marker({
+        position: new google.maps.LatLng(this.myLatLng.lat + Math.random() * .03, this.myLatLng.lng + Math.random() * .05),
+        map: this.map,
+        title: i.address,
+        houseId: i.id
+      }));
+
+      markers.push(new google.maps.Marker({
+        position: new google.maps.LatLng(37.3069353, -89.5214493),
         map: this.map,
         title: 'CodeFi',
         houseId: '-KNOYsPtzrgTJBFfrL4p'
-      });
+      }));
 
-      marker1.addListener('click', () => {
-        window['mapbtn1'].click();      
-      });
-
-      let marker2 = new google.maps.Marker({
+      markers.push(new google.maps.Marker({
         position: new google.maps.LatLng(37.305724, -89.5344137),
         map: this.map,
         title: 'Josiah\'s House',
         houseId: '-KNOccOVEazMBm5fUUIP'
-      });
+      }));
 
-      marker2.addListener('click', () => {
-        window['mapbtn2'].click();      
+      markers.map(i => {
+        i.addListener('click', () => {
+          window['mapbtn'].attributes['houseid'] = i.houseId;
+          window['mapbtn'].click();
+        });
       });
     });
   }
 
-  showHouse(houseId) {
+  showHouse() {
+    let houseId = window['mapbtn'].attributes['houseid'];
     this.house = this.houseService.collection.find(i => i.id === houseId);
   }
 

@@ -20,7 +20,6 @@ declare let google: any;
   template: `
     <div class="margin--small">
     <house *ngIf="house" [house]="house" (save)="save($event)" (delete)="delete($event)"></house>
-        Here lies the map
       <div class="map" id="map" [style.height]="height"></div>
 
 

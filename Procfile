@@ -1,1 +1,1 @@
-web: node dist/server/index.js
+web: npm install && webpack && nodemon dist/server/index.js

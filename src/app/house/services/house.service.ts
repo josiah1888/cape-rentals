@@ -9,9 +9,9 @@ export {House} from '../dto/house';
 @Injectable()
 export class HouseService extends FirebaseService<House> {
     constructor(private http: Http) {
-        super(BASE_URL + 'houses/');
+        super(BASE_URL + 'houses');
 
-        this.http.get(`${BASE_URL}/houses.json`)
+        this.http.get(`${BASE_URL}houses.json`)
             .subscribe(res => {
                 this._collection = this._collection || [];
                 let json = res.json();

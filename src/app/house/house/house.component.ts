@@ -13,7 +13,8 @@ const STOCK_IMAGE_URL: string = 'https://openclipart.org/image/2400px/svg_to_png
   selector: 'house',
   templateUrl: './house.component.html',
   styleUrls: ['./house.css'],
-  directives: [EditableHouseComponent]
+  directives: [EditableHouseComponent],
+  providers: [LoginService],
 })
 export class HouseComponent {
   @Input() house: House;

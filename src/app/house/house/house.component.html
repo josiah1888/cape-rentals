@@ -18,7 +18,7 @@
                         <span class="detail-boxes__value" name="value">{{house.numBedrooms}}</span>
                         <hr />
                     </div>
-                    <div class="col-sm-6" *ngIf="house.Bathrooms">
+                    <div class="col-sm-6" *ngIf="house.numBathrooms">
                         <label for="value2" class="details-boxes__key">Bathrooms</label>
                         <span class="detail-boxes__value" name="value2">{{house.numBathrooms}}</span>
                         <hr />
@@ -56,9 +56,12 @@
     <div class="clear"></div>
     <div class="">
         <div class="row">
-            <div class="col-sm-3" *ngIf="house.owner || house.landlord">
+            <div class="col-sm-3" *ngIf="(house.owner || house.landlord) && house.isClaimed">
                 <label for="owner">{{house.landlord ? 'Landlord' : 'Owner'}}</label>
                 <span name="owner">{{house.landlord || house.owner}}</span>
+            </div>
+            <div class="col-sm-3" *ngIf="!house.isClaimed">
+                <a href="/home#">Do you own this property?</a>
             </div>
             <div class="col-sm-4" *ngIf="house.address">
                 <label for="address">Address</label>

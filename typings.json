@@ -6,6 +6,7 @@
     "es6-shim": "registry:dt/es6-shim#0.31.2+20160317120654",
     "express": "registry:dt/express#4.0.0+20160317120654",
     "express-serve-static-core": "registry:dt/express-serve-static-core#0.0.0+20160322035842",
+    "google.maps": "registry:dt/google.maps#3.20.0+20160626235650",
     "mime": "registry:dt/mime#0.0.0+20160316155526",
     "node": "registry:dt/node#4.0.0+20160412142033",
     "serve-static": "registry:dt/serve-static#0.0.0+20160317120654"

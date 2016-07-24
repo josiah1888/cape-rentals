@@ -64,6 +64,7 @@ export class About { }
       <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./about'] ">About</a>
       <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./login'] ">Login</a>
       <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./signup'] ">Sign Up</a>
+      <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./map'] ">Map</a>
     </nav>
     <main class="container">
       <router-outlet></router-outlet>

@@ -1,4 +1,5 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import {House, HouseService} from '../services/house.service';
@@ -13,11 +14,15 @@ const STOCK_IMAGE_URL: string = 'https://openclipart.org/image/2400px/svg_to_png
   selector: 'house',
   templateUrl: './house.component.html',
   styleUrls: ['./house.css'],
-  directives: [EditableHouseComponent],
+  directives: [
+    EditableHouseComponent,
+    ...ROUTER_DIRECTIVES,
+    ],
   providers: [LoginService],
 })
 export class HouseComponent {
   @Input() house: House;
+  @Input() isOwnerView: boolean;
   @Output() save: EventEmitter<any> = new EventEmitter(); // Type house please?
   @Output() delete: EventEmitter<any> = new EventEmitter();
   hasAuth$: Observable<boolean>;

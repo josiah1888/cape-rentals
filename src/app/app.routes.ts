@@ -5,6 +5,7 @@ import { HousesComponent } from './house/houses.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { MapComponent } from './map/map.component';
+import { LandlordComponent } from './landlord/landlord.component';
 
 export const routes: RouterConfig = [
   { path: '', redirectTo: 'home' },
@@ -13,5 +14,6 @@ export const routes: RouterConfig = [
   { path: 'signup', component: SignupComponent },
   { path: 'map', component: MapComponent },
   { path: 'about', component: About },
+  { path: 'landlords/:id', component: LandlordComponent },
   { path: '**', redirectTo: 'home' },
 ];

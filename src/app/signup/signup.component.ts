@@ -14,7 +14,7 @@ import {SignupService} from './signup.service';
           <div>Email: <input type="email" [(ngModel)]="model.email" name="email" required/></div>
           <div>Password: <input type="password" [(ngModel)]="model.password" name="password" required/></div>
           <div>Name: <input type="text" [(ngModel)]="model.name" name="name" required/></div>
-          <div>License ID: <input type="text" [(ngModel)]="model.licenseId" name="licenseId" required/></div>
+          <div>License ID: <input type="text" [(ngModel)]="model.licenserId" name="licenserId" required/></div>
           <div><button class="btn" type="submit" [disabled]="!signupForm.form.valid">Sign Up!</button></div>
       </form>
     </div> 
@@ -32,14 +32,14 @@ export class SignupComponent {
     this.signupSuccessSub = this.signupSuccess$
       .subscribe((signedup) => {
         if (signedup) {
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/landlords/' + this.model.licenserId);
         }
       });
   }
 
-  model : SignupInfo = {email: '', password: '', name: '', licenseId: ''};
+  model : SignupInfo = {email: '', password: '', name: '', licenserId: ''};
 }
 
 export interface SignupInfo {
-  email: string, password: string, name: string, licenseId: string
+  email: string, password: string, name: string, licenserId: string
 }

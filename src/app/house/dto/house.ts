@@ -16,6 +16,7 @@ export class House {
     public imageUrl: string = 'https://static.pexels.com/photos/106399/pexels-photo-106399.jpeg';
     public owner: string = 'JBurchard';
     public landlord: string = 'JBurchard Rentals';
+    public licenserId: string = '';
     constructor(house: {
         id?: string,
         rent?: number,

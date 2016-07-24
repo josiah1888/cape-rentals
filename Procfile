@@ -1,1 +1,1 @@
-web: ls && node_modules/nodemon/bin/nodemon.js dist/server/index.js
+web: node dist/server/index.js

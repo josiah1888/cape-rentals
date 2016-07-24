@@ -60,11 +60,9 @@ export class About { }
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <nav>
-      <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./home'] ">Home</a>
-      <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./about'] ">About</a>
-      <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./login'] ">Login</a>
+      <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./'] ">Home</a>
+      <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./houses'] ">All Rentals</a>
       <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./signup'] ">Sign Up</a>
-      <a [routerLinkActive]="['active', 'router-link-active']" [routerLink]=" ['./map'] ">Map</a>
     </nav>
     <main class="container">
       <router-outlet></router-outlet>

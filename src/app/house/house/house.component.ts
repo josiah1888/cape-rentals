@@ -33,7 +33,6 @@ export class HouseComponent {
   }
 
   ngOnChanges() {
-    console.log(this.house.imageUrl);
     this.house.imageUrl = this.house.imageUrl || STOCK_IMAGE_URL;
     this.editableHouse = Object.assign({}, this.house);
   }

@@ -33,6 +33,7 @@ export class MapComponent {
     // max: 37.3233942,-89.514869
     map:any;
     house: House;
+    sub: Subscription;
 
   constructor(private router: Router, private googleApi: GoogleApiService, private houseService: HouseService) {
   }
@@ -46,12 +47,29 @@ export class MapComponent {
         zoom: 13
       });
 
-      let markers = this.houseService.collection.map(i => new google.maps.Marker({
-        position: new google.maps.LatLng(this.myLatLng.lat + Math.random() * .03, this.myLatLng.lng + Math.random() * .05),
-        map: this.map,
-        title: i.address,
-        houseId: i.id
-      }));
+      let markers = [];
+
+      this.sub = this.houseService.collection$.subscribe(houses => {
+        houses
+          .filter(house => house.id !== '-KNOYsPtzrgTJBFfrL4p' && house.id !== '-KNOccOVEazMBm5fUUIP')
+          .map(house => {
+            if (markers.map(marker => marker.houseId).indexOf(house.id) === -1) {
+              markers.push(new google.maps.Marker({
+                position: new google.maps.LatLng(this.myLatLng.lat + Math.random() * .03, this.myLatLng.lng + Math.random() * .05),
+                map: this.map,
+                title: house.address,
+                houseId: house.id
+              }));
+
+              markers.map(i => {
+                i.addListener('click', () => {
+                  window['mapbtn'].attributes['houseid'] = i.houseId;
+                  window['mapbtn'].click();
+                });
+              });
+            }
+        });
+      });
 
       markers.push(new google.maps.Marker({
         position: new google.maps.LatLng(37.3069353, -89.5214493),
@@ -74,6 +92,10 @@ export class MapComponent {
         });
       });
     });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
   showHouse() {

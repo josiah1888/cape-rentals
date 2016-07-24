@@ -8,12 +8,11 @@ import { MapComponent } from './map/map.component';
 import { LandlordComponent } from './landlord/landlord.component';
 
 export const routes: RouterConfig = [
-  { path: '', redirectTo: 'home' },
-  { path: 'home', component: HousesComponent },
-  { path: 'login', component: LoginComponent },
+  { path: '', component: MapComponent },
+  { path: 'houses', component: HousesComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'map', component: MapComponent },
-  { path: 'about', component: About },
   { path: 'landlords/:id', component: LandlordComponent },
+  // { path: 'login', component: LoginComponent },
+  // { path: '', redirectTo: 'home' },
   { path: '**', redirectTo: 'home' },
 ];

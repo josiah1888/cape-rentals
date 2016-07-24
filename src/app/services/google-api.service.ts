@@ -15,6 +15,8 @@ export class GoogleApiService {
       };
       if (typeof google === 'undefined') {
           this.loadScript();
+      } else {
+        resolve();
       }
     });
   }

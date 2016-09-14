@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { UniversalModule } from 'angular2-universal';
 
@@ -11,7 +12,8 @@ export function main() {
     declarations: [ App ],
     imports: [
       UniversalModule,
-      FormsModule
+      FormsModule,
+      HttpModule,
     ],
   })
   class MainModule {
